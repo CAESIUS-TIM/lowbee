@@ -1,0 +1,32 @@
+`timescale 1 ps/ 1 ps
+module flowing_led_vlg_tst;
+
+reg rst_n;
+reg key;
+reg clk;
+
+wire[7:0] leds;
+
+
+flowing_led fl1(
+	.rst_n(rst_n),
+	.clk(clk),
+	.key(key),
+	.leds(leds)
+);
+
+initial
+begin
+	rst_n = 1;
+	key = 0;
+	clk = 0;
+	#10 rst_n = 0;
+	#10 rst_n = 1;
+end
+
+always #50 clk = !clk;
+always @(posedge clk) begin
+	key = ({$random}%'b10001)>>4;
+end
+
+endmodule

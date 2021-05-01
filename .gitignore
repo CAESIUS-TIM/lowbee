@@ -1,0 +1,13 @@
+# dir
+**/db
+**/incremental_db
+**/output_files
+**/simulation
+.vscode
+# file
+**/*.bak
+**/*.qpf
+**/*.qsf
+**/*.qws
+**/*.rpt
+**/*.txt
